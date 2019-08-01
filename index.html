@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Rock Paper Scissors</title>
+</head>
+<body>
+<script>
+
+	function capaitalize(w) {
+		let word = w.toLowerCase();
+		return word.charAt(0).toUpperCase() + word.slice(1);
+	}
+
+	function computerPlay() {
+		let option = ['rock', 'paper', 'scissors'];
+		let randomNumber = Math.floor(Math.random() * Math.floor(3));
+		return option[randomNumber];
+	};
+
+	function playRound(playerSelection, computerSelection) {
+		if (playerSelection === "rock" && computerSelection === "scissors") {
+			playerWins++;
+			return "You Win! Rock beats Scissors";
+		} else if (playerSelection === "scissors" && computerSelection === "paper"){
+			playerWins++;
+			return "You Win! Scissors beats Paper";
+		} else if (playerSelection === "paper" && computerSelection === "rock") {
+			playerWins++;
+			return "You Win! Paper beats Rock";
+		} else if (playerSelection === computerSelection) {
+			return "It's a tie!";
+		} else {
+			compWins++;
+			return "You Lose! " + capaitalize(computerSelection) + " beats " + capaitalize(playerSelection);
+		}
+	};
+
+	let playerWins = 0;
+	let compWins = 0;
+	let numberOfRounds = 0;
+
+	function game() {
+		while (true) {
+			let choice = prompt();
+			let results = playRound(choice, computerPlay());
+			console.log(results);
+			numberOfRounds++;
+			if (playerWins === 3 || compWins === 3 || numberOfRounds === 5) {
+				break;
+			}
+		}
+		if (playerWins === 3 || playerWins > compWins) {
+			console.log("You Win!");
+		} else {
+			console.log("You Lose!");
+		}
+
+	};
+
+	game();
+
+	
+
+</script>
+<h1>Rock Paper Scissors</h1>
+</body>
+</html>
