@@ -2,6 +2,7 @@ let playerWins = 0;
 let compWins = 0;
 let numberOfRounds = 0;
 let display = document.querySelector("#results");
+let scores = document.querySelector("#scores");
 
 
 function capaitalize(w) {
@@ -44,23 +45,29 @@ function playerChoice() {
 			game(button.id);
 		})
 	});
-}
+};
 
 function game(choice) {
 	let results = playRound(choice, computerPlay());
 	display.textContent = results;
 	numberOfRounds++;
+	scores.textContent = `Scores: You: ${playerWins} | Computer: ${compWins}`;
 }
 
 function isWinner() {
+	scores.textContent = `Scores: You: ${playerWins} | Computer: ${compWins}`;
 	if (playerWins === 3 || playerWins > compWins) {
-		display.textContent = "You Win!";
+		display.textContent = "You are the Winner! :)";
+	} else if (playerWins === compWins) {
+		display.textContent = "Draw";
 	} else {
-		display.textContent = "You Lose!";
+		display.textContent = "The Computer Won! :(";
 	}
+	
 }
 
 playerChoice();
+
 
 
 

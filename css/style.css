@@ -1,0 +1,33 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #f3f3f3;
+	overflow: hidden;
+	color: #333;
+	font-family: 'Roboto', sans-serif;
+}
+
+button {
+	padding: 0.75rem;
+	font-weight: bold;
+	font-size: 16px;
+	text-transform: uppercase;
+	margin: 0.5rem;
+	color: #fff;
+}
+
+#rock {	background-color: red;}
+#paper { background-color: blue; }
+#scissors { background-color: green; }
+
+.container {
+	text-align: center;
+}
+
+#results {
+	margin: 0.5rem;
+}
